@@ -56,114 +56,76 @@ inputElement.addEventListener("change", (e) => {
 
 
 
-### Use OpenCV.js
+### 使用OpenCV.js
 
-Once `opencv.js` is ready, you can access OpenCV objects and functions through `cv` object.
+当`opencv.js`加载完成之后，你就可以使用`cv`来调用OpenCV的类和函数。
 
-For example, you can create a [cv.Mat](https://docs.opencv.org/4.0.1/d3/d63/classcv_1_1Mat.html) from an image by [cv.imread](https://docs.opencv.org/4.0.1/d4/da8/group__imgcodecs.html#ga288b8b3da0892bd651fce07b3bbd3a56).
+比如，你可以使用`cv.imread`将读取图片并将其创建为一个`cv.Mat`类型的数据。
 
-- Note
+注意：因为图片是异步加载的，你需要将图片的处理函数放到`onload`回调函数中。
 
-  Because image loading is asynchronous, you need to put [cv.Mat](https://docs.opencv.org/4.0.1/d3/d63/classcv_1_1Mat.html) creation inside the `onload` callback.
-
+```javascript
 imgElement.onload = function() {
-
   let mat = cv.imread(imgElement);
-
 }
+```
 
-Many OpenCV functions can be used to process [cv.Mat](https://docs.opencv.org/4.0.1/d3/d63/classcv_1_1Mat.html). You can refer to other tutorials, such as [Image Processing](https://docs.opencv.org/4.0.1/d2/df0/tutorial_js_table_of_contents_imgproc.html), for details.
+很多OpenCV函数都可以直接处理`cv.Mat`。你可以查看其他的教程，例如图像处理。
 
-In this tutorial, we just show a [cv.Mat](https://docs.opencv.org/4.0.1/d3/d63/classcv_1_1Mat.html) on screen. To show a [cv.Mat](https://docs.opencv.org/4.0.1/d3/d63/classcv_1_1Mat.html), you need a canvas element.
+本章教程中，我们只讲述如何在屏幕上显示`cv.Mat`。当然，我们首先要准备好一个`canvas`元素。
 
+在本教程中，我們只在屏幕上顯示cv.Mat。 要顯示cv.Mat，您需要一個canvas元素。
+
+```html
 <canvas id="outputCanvas"></canvas>
+```
 
-You can use [cv.imshow](https://docs.opencv.org/4.0.1/d7/dfc/group__highgui.html#ga453d42fe4cb60e5723281a89973ee563) to show [cv.Mat](https://docs.opencv.org/4.0.1/d3/d63/classcv_1_1Mat.html) on the canvas. 
+你可以使用`cv.imshow`在画布上显示`cv.Mat`数据。
 
+```javascript
 cv.imshow(mat, "outputCanvas");
+```
+完整的代码如下：
 
-Putting all of the steps together, the final index.html is shown below.
-
+```html
 <!DOCTYPE html>
-
 <html>
-
 <head>
-
 <meta charset="utf-8">
-
 <title>Hello OpenCV.js</title>
-
 </head>
-
 <body>
-
 <h2>Hello OpenCV.js</h2>
-
 <p id="status">OpenCV.js is loading...</p>
-
 <div>
-
   <div class="inputoutput">
-
-​    <img id="imageSrc" alt="No Image" />
-
+    <img id="imageSrc" alt="No Image" />
     <div class="caption">imageSrc <input type="file" id="fileInput" name="file" /></div>
-
   </div>
-
   <div class="inputoutput">
-
-​    <canvas id="canvasOutput" ></canvas>
-
+    <canvas id="canvasOutput" ></canvas>
     <div class="caption">canvasOutput</div>
-
   </div>
-
 </div>
-
 <script type="text/javascript">
-
 let imgElement = document.getElementById('imageSrc');
-
 let inputElement = document.getElementById('fileInput');
-
 inputElement.addEventListener('change', (e) => {
-
   imgElement.src = URL.createObjectURL(e.target.files[0]);
-
 }, false);
 
-
-
 imgElement.onload = function() {
-
   let mat = cv.imread(imgElement);
-
   cv.imshow('canvasOutput', mat);
-
   mat.delete();
-
 };
 
-
-
 function onOpenCvReady() {
-
   document.getElementById('status').innerHTML = 'OpenCV.js is ready.';
-
 }
-
 </script>
-
 <script async src="opencv.js" onload="onOpenCvReady();" type="text/javascript"></script>
-
 </body>
-
 </html>
-
-- Note
-
-  You have to call delete method of [cv.Mat](https://docs.opencv.org/4.0.1/d3/d63/classcv_1_1Mat.html) to free memory allocated in Emscripten's heap. Please refer to [Memory management of Emscripten](https://kripken.github.io/emscripten-site/docs/porting/connecting_cpp_and_javascript/embind.html#memory-management) for details.
-
-## Try it
+```
+注意：你需要调用delete方法来释放内存，因为Emscripten堆中的内存不会自动释放。请参照[Emscripten的內存管理](https://kripken.github.io/emscripten-site/docs/porting/connecting_cpp_and_javascript/embind.html#memory-management)。
