@@ -3,8 +3,8 @@
   * OpenCV.js 简介
 
     * [OpenCV.js和教程简介](tutorial_js_intro.md)
-    * [使用OpenCV.js(todo)](tutorial_js_usage.md)
-    * [编译OpenCV.js(todo)]()
+    * [使用OpenCV.js](tutorial_js_usage.md)
+    * [编译OpenCV.js(todo)](tutorial_js_setup.md)
 
 * GUI 功能
 
