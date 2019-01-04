@@ -94,3 +94,4 @@ img.delete();
 ```
 
 ## Try it
+

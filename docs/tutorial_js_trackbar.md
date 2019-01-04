@@ -21,16 +21,16 @@ Then, we use HTML DOM Input Range Object to implement the trackbar, which is sho
 
 > Note
 >
-> \<input\> elements with type="range" are not supported in Internet Explorer 9 and earlier versions.
+> \<input> elements with type="range" are not supported in Internet Explorer 9 and earlier versions.
 
-You can create an <input> element with type="range" with the document.createElement() method: 
+You can create an \<input> element with type="range" with the document.createElement() method: 
 
 ```javascript
 let x = document.createElement('INPUT');
 x.setAttribute('type', 'range');
 ```
 
-You can access an <input> element with type="range" with getElementById(): 
+You can access an \<input> element with type="range" with getElementById(): 
 
 ```javascript
 let x = document.getElementById('myRange');

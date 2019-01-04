@@ -10,9 +10,9 @@ Often, we have to capture live stream with a camera. In OpenCV.js, we use WebRTC
 
 To capture a video, you need to add some HTML elements to the web page:
 
-- a \<video\> to display video from camera directly
-- a \<canvas\> to transfer video to canvas ImageData frame-by-frame
-- another \<canvas\> to display the video OpenCV.js gets
+- a \<video> to display video from camera directly
+- a \<canvas> to transfer video to canvas ImageData frame-by-frame
+- another \<canvas> to display the video OpenCV.js gets
 
 First, we use WebRTC navigator.mediaDevices.getUserMedia to get the media stream. 
 
@@ -101,3 +101,4 @@ setTimeout(processVideo, 0);
 > Remember to delete src and dst after when stop.
 
 ## Try it
+
