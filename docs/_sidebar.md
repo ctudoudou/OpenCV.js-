@@ -9,6 +9,9 @@
   * [添加一个控制条(英文)](tutorial_js_trackbar.md)
   
 * 核心业务
+  * [图像的基本操作(英文)](tutorial_js_basic_ops.md)
+  * [图像的算术运算(英文)](tutorial_js_image_arithmetics.md)
+  * [基础的数据结构(英文)](tutorial_js_some_data_structures.md)
 
 * 图像处理
 
