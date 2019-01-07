@@ -14,6 +14,7 @@
   * [基础的数据结构(英文)](tutorial_js_some_data_structures.md)
 
 * 图像处理
+  * [色彩空间(英文)](tutorial_js_colorspaces.md)
 
 * 视频处理
 
