@@ -1,10 +1,10 @@
-# Build OpenCV.js
+# 编译 OpenCV.js
 
-## Installing Emscripten
+## 安装 Emscripten
 
-[Emscripten](https://github.com/kripken/emscripten) is an LLVM-to-JavaScript compiler. We will use Emscripten to build OpenCV.js.
+[Emscripten](https://github.com/kripken/emscripten)是一个可以将C/C++编译成叫做asm.js的javaScript变体的编译器。因为OpenCV是基于C/C++开发的，所以我们将使用Emscripten来编译生成OpenCV.js。
 
-To Install Emscripten, follow instructions of [Emscripten SDK](https://kripken.github.io/emscripten-site/docs/getting_started/downloads.html).
+首先，我们需要准备好Emscripten，参考[这篇介绍](https://kripken.github.io/emscripten-site/docs/getting_started/downloads.html)。
 
 For example: 
 
